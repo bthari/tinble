@@ -1,13 +1,15 @@
 package model
 
+import "go.mongodb.org/mongo-driver/bson/primitive"
+
 type User struct {
-	ID               int64
-	Username         string       `bson:"username"`
-	Email            string       `bson:"email"`
-	Password         string       `bson:"password"`
-	SubscriptionType int          `bson:"subscription_type"`
-	Information      *Information `bson:"information,omitempty"`
-	Preference       *Preference  `bson:"preference,omitempty"`
+	ID               primitive.ObjectID `bson:"_id"`
+	Username         string             `bson:"username"`
+	Email            string             `bson:"email"`
+	Password         string             `bson:"password"`
+	SubscriptionType int                `bson:"subscription_type"`
+	Information      *Information       `bson:"information,omitempty"`
+	Preference       *Preference        `bson:"preference,omitempty"`
 }
 
 type Information struct {
