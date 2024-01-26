@@ -2,14 +2,16 @@ package main
 
 import (
 	"fmt"
-	handler "github/bthari/tinble/app/cmd/api/handler"
-	router "github/bthari/tinble/app/cmd/api/router"
+	"github/bthari/tinble/app/cmd/api/handler"
+	"github/bthari/tinble/app/cmd/api/router"
+	config "github/bthari/tinble/app/pkg/config"
 	"log"
 	"net/http"
 )
 
 func main() {
-	h := handler.NewHandler()
+	config := config.GetConfig()
+	h := handler.NewHandler(config)
 	r := router.Init(h)
 	addr := ":8080"
 
