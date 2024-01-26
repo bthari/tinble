@@ -10,6 +10,8 @@ func Init(handler handler.Handler) http.Handler {
 	router := httprouter.New()
 
 	router.GET("/ping", handler.Ping)
+	router.POST("/register", handler.RegisterUser)
+	router.POST("/sign-in", handler.SignIn)
 
 	return router
 }
