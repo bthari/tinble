@@ -1,0 +1,12 @@
+deployment:
+  httpport: 8080
+
+auth:
+  jwtsecret: "secret"
+
+mongodb:
+  user: "root"
+  password: "12345678"
+  host: "mongodb://localhost"
+  port: 27017
+  database: "tindle"
