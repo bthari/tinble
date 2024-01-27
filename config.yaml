@@ -5,8 +5,8 @@ auth:
   jwtsecret: "secret"
 
 mongodb:
-  user: "root"
-  password: "12345678"
-  host: "mongodb://localhost"
+  user: "user"
+  password: "password"
+  host: "host"
   port: 27017
   database: "tindle"
