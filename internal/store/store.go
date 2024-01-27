@@ -3,9 +3,10 @@ package store
 import (
 	"context"
 	"fmt"
+	"log"
+
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
-	"log"
 
 	"github/bthari/tinble/internal/model"
 	"github/bthari/tinble/pkg/config"

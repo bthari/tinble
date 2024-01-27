@@ -2,14 +2,16 @@ package handler
 
 import (
 	"encoding/json"
+	"net/http"
+	"time"
+
 	jwt "github.com/golang-jwt/jwt/v4"
 	"github.com/julienschmidt/httprouter"
+
 	"github/bthari/tinble/internal/dto/request"
 	"github/bthari/tinble/internal/dto/response"
 	"github/bthari/tinble/internal/model"
-	"github/bthari/tinble/internal/util"
-	"net/http"
-	"time"
+	"github/bthari/tinble/pkg/util"
 )
 
 func (h *Handler) RegisterUser(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
