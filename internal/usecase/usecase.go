@@ -2,13 +2,15 @@ package usecase
 
 import (
 	"context"
-	"github/bthari/tinble/app/internal/model"
-	"github/bthari/tinble/app/internal/store"
+
+	"github/bthari/tinble/internal/dto/request"
+	"github/bthari/tinble/internal/model"
+	"github/bthari/tinble/internal/store"
 )
 
 type UseCaseInterface interface {
 	InsertNewUser(ctx context.Context, user *model.User) (err error)
-	AuthenticateUser(ctx context.Context, username string) (user *model.User, err error)
+	AuthenticateUser(ctx context.Context, request *request.SignInRequest) (err error)
 }
 
 type UseCase struct {

@@ -3,11 +3,12 @@ package store
 import (
 	"context"
 	"fmt"
-	"github/bthari/tinble/app/internal/model"
-	"github/bthari/tinble/app/pkg/config"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 	"log"
+
+	"github/bthari/tinble/internal/model"
+	"github/bthari/tinble/pkg/config"
 )
 
 type StoreInterface interface {
@@ -25,7 +26,7 @@ func NewStore(database *mongo.Database) Store {
 	}
 }
 
-func InitStore(config *config.Database) *mongo.Database {
+func InitMongo(config *config.Database) *mongo.Database {
 	credential := options.Credential{
 		Username: config.User,
 		Password: config.Password,

@@ -1,9 +1,11 @@
 package router
 
 import (
-	"github.com/julienschmidt/httprouter"
-	"github/bthari/tinble/app/cmd/api/handler"
 	"net/http"
+
+	"github.com/julienschmidt/httprouter"
+
+	"github/bthari/tinble/cmd/api/handler"
 )
 
 func Init(handler handler.Handler) http.Handler {

@@ -2,7 +2,7 @@ package store
 
 import (
 	"context"
-	"github/bthari/tinble/app/internal/model"
+	"github/bthari/tinble/internal/model"
 	"go.mongodb.org/mongo-driver/bson"
 )
 

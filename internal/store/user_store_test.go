@@ -3,8 +3,8 @@ package store_test
 import (
 	"context"
 	"github.com/stretchr/testify/assert"
-	"github/bthari/tinble/app/internal/model"
-	store "github/bthari/tinble/app/internal/store"
+	"github/bthari/tinble/internal/model"
+	store "github/bthari/tinble/internal/store"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"

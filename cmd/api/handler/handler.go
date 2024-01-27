@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"errors"
 	"github.com/julienschmidt/httprouter"
-	"github/bthari/tinble/app/internal/constant"
-	response "github/bthari/tinble/app/internal/dto/response"
-	"github/bthari/tinble/app/internal/store"
-	"github/bthari/tinble/app/internal/usecase"
-	"github/bthari/tinble/app/pkg/config"
 	"net/http"
+
+	"github/bthari/tinble/internal/constant"
+	response "github/bthari/tinble/internal/dto/response"
+	"github/bthari/tinble/internal/usecase"
+	"github/bthari/tinble/pkg/config"
 )
 
 type HandlerInterface interface {
@@ -19,14 +19,11 @@ type HandlerInterface interface {
 }
 
 type Handler struct {
-	UseCase usecase.UseCase
+	UseCase usecase.UseCaseInterface
 	Config  *config.Config
 }
 
-func NewHandler(config *config.Config) Handler {
-	s := store.NewStore(store.InitStore(config.Mongo))
-	uc := usecase.NewUseCase(&s)
-
+func NewHandler(config *config.Config, uc usecase.UseCase) Handler {
 	return Handler{
 		UseCase: uc,
 		Config:  config,

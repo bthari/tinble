@@ -2,11 +2,12 @@ package usecase
 
 import (
 	"context"
-	"github/bthari/tinble/app/internal/constant"
-	"github/bthari/tinble/app/internal/dto/request"
-	"github/bthari/tinble/app/internal/model"
-	"github/bthari/tinble/app/internal/util"
 	"go.mongodb.org/mongo-driver/mongo"
+
+	"github/bthari/tinble/internal/constant"
+	"github/bthari/tinble/internal/dto/request"
+	"github/bthari/tinble/internal/model"
+	"github/bthari/tinble/internal/util"
 )
 
 func (uc UseCase) InsertNewUser(ctx context.Context, newUser *model.User) (err error) {

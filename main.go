@@ -2,16 +2,21 @@ package main
 
 import (
 	"fmt"
-	"github/bthari/tinble/app/cmd/api/handler"
-	"github/bthari/tinble/app/cmd/api/router"
-	config "github/bthari/tinble/app/pkg/config"
 	"log"
 	"net/http"
+
+	"github/bthari/tinble/cmd/api/handler"
+	"github/bthari/tinble/cmd/api/router"
+	"github/bthari/tinble/internal/store"
+	"github/bthari/tinble/internal/usecase"
+	config "github/bthari/tinble/pkg/config"
 )
 
 func main() {
 	config := config.GetConfig()
-	h := handler.NewHandler(config)
+	s := store.NewStore(store.InitMongo(config.Mongo))
+	uc := usecase.NewUseCase(&s)
+	h := handler.NewHandler(config, uc)
 	r := router.Init(h)
 	addr := ":8080"
 
