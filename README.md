@@ -1,7 +1,5 @@
 # Tinble
 
-# Welcome to StackEdit!
-
 This is a Tinder Like Backend Service! This service, as of now, only handle the creation and the signin function of the user. For more information on how to run the program, please see below:
 
 ## Prerequisite
@@ -21,15 +19,45 @@ The deployment, mongoDB config, and JWT Secret is configurable within `config.ya
 - Create Database: firstly, you need to make the mongodb database to be used, along with its collection named "user"
 - Update the configuration in the `config.yaml` file according to the auth/configuration in your device.
 - Get the depedencies file using this command
-```
-go mod vendor
-```
+```  
+go mod vendor  
+```  
 - To run the code, you can directly run this in command line
-```
-go run main.go
-```
+```  
+go run main.go  
+```  
 or, build and run the binary file
+```  
+go build  
+./tinble  
 ```
-go build
-./tinble
+
+
+## Structure
+
+The three main layer for the application are:
 ```
+cmd
+-- api
+---- handler
+---- router
+internal
+-- model
+-- store
+-- usecase
+-- ...
+pkg
+-- config
+-- util
+main.go
+```
+
+- **cmd**: this is the main interface of the application, which in this application it will be REST API, if the app serves a gRPC then there will be another folder the same level as `api`
+    - **handler**: the handler main responsibility is to validate request/response and to transformit into an internal struct/parameter used to communicate with the usecase layer
+- **internal**: the internal library code, which couldn't be imported by another application
+    - **usecase**: will handle the business logic of the request
+    - **store**: the only layer that has a direct access with the mongodb and will handle the query logic to the database
+- **pkg**: the pkg directory will contain a code that can be used by another application
+
+### The flow of handling request:
+- handler > usecase > store 
