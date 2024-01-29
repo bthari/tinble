@@ -61,3 +61,22 @@ main.go
 
 ### The flow of handling request:
 - handler > usecase > store 
+
+### The API
+- #### For new user want to register `{url}/register`
+Body:
+```json
+{
+  "username": "username",
+  "email": "validemail@gmail.com",
+  "password": "password"
+}
+```
+- #### For new user want to register `{url}/sign-in`
+Body:
+```json
+{
+  "username": "username",
+  "password": "password"
+}
+```
